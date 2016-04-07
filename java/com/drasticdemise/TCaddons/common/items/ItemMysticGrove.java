@@ -61,13 +61,14 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
 		//Grass
-		if(Math.random() < .5){
+		double num = Math.random();
+		if(num < .5){
 			genGrass(worldIn, pos);
+			if(Math.random() <= 0.05){
+				genFlowers(worldIn, pos);
+			}
 		}
-		//Flowers or trees
-		if(Math.random() <= 0.01){
-			genFlowers(worldIn, pos);
-		}else if(Math.random() < 0.02){
+		if(Math.random() < 0.02){
 			growTree(worldIn, pos);
 		}
 		
@@ -76,17 +77,18 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 	@Override
 	public void growTree(World worldIn, BlockPos pos) {
 		//TODO:Get all saplings again. I hate my life.
+		//sapling_01 5,6
+		//sapling_0  3
+		//default oak
 		double num = Math.random();
-		if(Math.random() < 0.5){
-			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(1));
-		}else if(num < 1){
-			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(2));
-		}else if(num < 1){
-			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(2));
-		}else if(num < 1){
-			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(2));
-		}else if(num < 1){
-			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(2));
+		if(num < 0.25){
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(5));
+		}else if(num < .50){
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(6));
+		}else if(num < 0.75){
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(3));
+		}else{
+			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
 		}
 		try{
 			IGrowable growable = (IGrowable) worldIn.getBlockState(pos.up()).getBlock();

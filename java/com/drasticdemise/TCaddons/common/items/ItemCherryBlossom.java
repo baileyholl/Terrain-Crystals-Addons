@@ -67,7 +67,6 @@ public class ItemCherryBlossom extends BOPTerrainCrystalAbstract{
 		
 		if(Math.random() < .6){
 			super.genGrass(worldIn, pos);
-			
 			if(Math.random() < 0.15){
 				genFlowers(worldIn, pos);
 			}
@@ -93,8 +92,6 @@ public class ItemCherryBlossom extends BOPTerrainCrystalAbstract{
 		}else if(num < 0.80){
 			//Houstonia/Azure Blast
 			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(3));
-		}else{
-			worldIn.setBlockState(pos.up(), Blocks.double_plant.getStateFromMeta(1));
 		}
 	}
 
