@@ -1,9 +1,12 @@
 package com.drasticdemise.TCaddons.common.items;
 
+import java.util.Random;
+
 import com.DrasticDemise.TerrainCrystals.Items.TerrainCrystalAbstract;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
+import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -27,7 +30,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 		setMaxStackSize(1);
 		//setMaxDamage
 		setMaxDamage(7000);
-        GameRegistry.registerItem(this);
+		GameRegistry.register(this);
 	}
 	@Override
 	public ActionResult<ItemStack> func_77659_a(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
@@ -43,7 +46,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 			int posY = MathHelper.floor_double(playerIn.posY);
 			if(posY - pos.getY() == 1){
 				super.setBiome(worldIn, pos, desiredBiome, changeBiome);
-				worldIn.setBlockState(pos, BOPBlocks.grass.getStateFromMeta(10));
+				worldIn.setBlockState(pos, BOPBlocks.grass.getStateFromMeta(5));
 				decoratePlatform(worldIn, pos);
 			}else{
 				worldIn.setBlockState(pos, Blocks.dirt.getDefaultState());
@@ -55,8 +58,40 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		
+		//BOP flowers from JSON - variants are zero indexed.
+				//https://github.com/Glitchfiend/BiomesOPlenty/blob/8c2169b8c4448df153cab3ec4e7451d5fa84ce25/src/main/resources/assets/biomesoplenty/blockstates/flower_0.json
+		try{
+			if (BOPBlocks.sapling_1.canPlaceBlockAt(worldIn, pos.up())){
+				if(Math.random() <= .01){
+					//Rose
+					if(Math.random() < .5){
+						worldIn.setBlockState(pos.up(), BOPBlocks.flower_1.getStateFromMeta(5));
+					}else{
+						//Yellow flower
+						worldIn.setBlockState(pos.up(), Blocks.yellow_flower.getDefaultState());
+					}
+				}
+				if(Math.random() <= 0.01){
+					worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getDefaultState());
+					try{
+						IGrowable growable = (IGrowable) worldIn.getBlockState(pos.up()).getBlock();
+						int attemptCap = 0;
+						Random rand = new Random();
+						while((worldIn.getBlockState(pos.up()) != Blocks.log.getDefaultState()) && attemptCap < 10){
+							growable.grow(worldIn, rand, pos.up(), worldIn.getBlockState(pos.up()));
+							attemptCap++;
+						}
+						//Delete spare saplings
+						if(attemptCap > 9 && worldIn.getBlockState(pos.up()).equals(BOPBlocks.sapling_1.getDefaultState())){
+							worldIn.setBlockState(pos.up(), Blocks.air.getDefaultState());
+						}
+					}catch(ClassCastException e){
+						
+					}
+				}
+			}
+		}
+		catch(IllegalArgumentException e){
+		}
 	}
-
 }
