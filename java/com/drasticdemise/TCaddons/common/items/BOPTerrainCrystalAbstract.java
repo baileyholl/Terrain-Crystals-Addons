@@ -6,6 +6,8 @@ import java.util.Random;
 import com.DrasticDemise.TerrainCrystals.Items.TerrainCrystalAbstract;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.enums.BOPWoods;
 import net.minecraft.block.IGrowable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -19,36 +21,30 @@ import net.minecraft.world.biome.BiomeGenBase;
 public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 	
 	public static void initInvalidBOPSpaces(){
+		//The nuclear option
+		
 		//Saplings
+		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_0.getDefaultState());
 		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_1.getDefaultState());
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_1.getStateFromMeta(1));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_1.getStateFromMeta(2));
-		
-		//Logs -- May require additions if the models count each.
+		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_2.getDefaultState());
+		for(int i = 0; i < 8; i++){
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_0.getStateFromMeta(i));
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_1.getStateFromMeta(i));
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.sapling_2.getStateFromMeta(i));
+		}
 		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_0.getDefaultState());
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_0.getStateFromMeta(1));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_0.getStateFromMeta(2));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_0.getStateFromMeta(3));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_0.getStateFromMeta(4));
-		
 		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_1.getDefaultState());
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_1.getStateFromMeta(1));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_1.getStateFromMeta(2));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_1.getStateFromMeta(3));
-		
 		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_2.getDefaultState());
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_2.getStateFromMeta(1));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_2.getStateFromMeta(2));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_2.getStateFromMeta(3));
-		
 		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_3.getDefaultState());
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_3.getStateFromMeta(1));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_3.getStateFromMeta(2));
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_3.getStateFromMeta(3));
-		
 		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_4.getDefaultState());
-		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_4.getStateFromMeta(1));
-		
+		for(int i = 0; i < 16; i++){
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_0.getStateFromMeta(i));
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_1.getStateFromMeta(i));
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_2.getStateFromMeta(i));
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_3.getStateFromMeta(i));
+			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_4.getStateFromMeta(i));
+		}
+		TerrainCrystalAbstract.invalidSpaces.add(BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
 	}
 	
 	/**
