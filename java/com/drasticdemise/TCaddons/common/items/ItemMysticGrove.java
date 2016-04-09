@@ -44,7 +44,7 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 	protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated,
 			BiomeGenBase desiredBiome, boolean changeBiome) {
 		
-		if(eligibleStateLocation(worldIn.getBlockState(pos), pos)){
+		if(eligibleStateLocation(worldIn, pos)){
 			int posY = MathHelper.floor_double(playerIn.posY);
 			if(posY - pos.getY() == 1){
 				super.setBiome(worldIn, pos, desiredBiome, changeBiome);
@@ -68,7 +68,7 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 				genFlowers(worldIn, pos);
 			}
 		}
-		if(Math.random() < 0.02){
+		if(Math.random() < 0.03 && spacedFarEnough(worldIn, pos.up())){
 			growTree(worldIn, pos);
 		}
 		

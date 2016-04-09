@@ -42,7 +42,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 	@Override
 	protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated,
 			BiomeGenBase desiredBiome, boolean changeBiome) {
-		if(eligibleStateLocation(worldIn.getBlockState(pos), pos)){
+		if(eligibleStateLocation(worldIn, pos)){
 			int posY = MathHelper.floor_double(playerIn.posY);
 			if(posY - pos.getY() == 1){
 				super.setBiome(worldIn, pos, desiredBiome, changeBiome);
@@ -59,9 +59,9 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
 		//BOP flowers from JSON - variants are zero indexed.
-				//https://github.com/Glitchfiend/BiomesOPlenty/blob/8c2169b8c4448df153cab3ec4e7451d5fa84ce25/src/main/resources/assets/biomesoplenty/blockstates/flower_0.json
+	//https://github.com/Glitchfiend/BiomesOPlenty/blob/8c2169b8c4448df153cab3ec4e7451d5fa84ce25/src/main/resources/assets/biomesoplenty/blockstates/flower_0.json
 		try{
-			if (BOPBlocks.sapling_1.canPlaceBlockAt(worldIn, pos.up())){
+			if (BOPBlocks.sapling_1.canPlaceBlockAt(worldIn, pos.up()) && spacedFarEnough(worldIn, pos.up())){
 				if(Math.random() <= .01){
 					//Rose
 					if(Math.random() < .5){

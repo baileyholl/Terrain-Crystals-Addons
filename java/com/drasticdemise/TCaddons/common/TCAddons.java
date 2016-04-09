@@ -1,5 +1,7 @@
 package com.drasticdemise.TCaddons.common;
 
+import com.drasticdemise.TCaddons.common.items.BOPTerrainCrystalAbstract;
+
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -51,6 +53,7 @@ public class TCAddons {
 		}
 		public void postInit(FMLPostInitializationEvent e){
 			
+			BOPTerrainCrystalAbstract.initInvalidBOPSpaces();
 		}
 	}
 	
