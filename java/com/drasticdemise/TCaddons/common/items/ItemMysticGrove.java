@@ -76,18 +76,21 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 
 	@Override
 	public void growTree(World worldIn, BlockPos pos) {
-		//TODO:Get all saplings again. I hate my life.
 		//sapling_01 5,6
 		//sapling_0  3
 		//default oak
 		double num = Math.random();
 		if(num < 0.25){
+			//Fl;owering oak
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(5));
 		}else if(num < .50){
+			//Jacandara
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(6));
 		}else if(num < 0.75){
+			//Magic
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(3));
 		}else{
+			//Oak
 			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
 		}
 		try{

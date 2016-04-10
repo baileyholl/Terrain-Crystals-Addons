@@ -57,17 +57,56 @@ public class ItemFlowerIsland extends BOPTerrainCrystalAbstract{
 
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
-		if(Math.random() < 0.02 && spacedFarEnough(worldIn, pos.up())){
+		if(Math.random() < 0.02 && spacedFarEnough(worldIn, pos.up(), 11)){
 			if(Math.random() < 0.5){
 				generateRedFlower(worldIn, pos);
 			}else{
 				generateYellowFlower(worldIn, pos);
 			}
+		}else{
+			genGrass(worldIn, pos);
 		}
 	}
 	
 	private void generateYellowFlower(World worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
+		//worldIn.setBlockState(pos.up(6), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		//worldIn.setBlockState(pos.up(7), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		
+        worldIn.setBlockState(pos.add(-1, 4, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(1, 4, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 4, -1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 4, 1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        
+        worldIn.setBlockState(pos.add(2, 4, 2) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(2, 4, -2) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-2, 4, 2) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-2, 4, -2) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        
+        worldIn.setBlockState(pos.add(0, 5, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-1, 5, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(1, 5, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 5, -1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 5, 1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(1, 5, 1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+
+        worldIn.setBlockState(pos.add(1, 5, -1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-1, 5, 1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-1, 5, -1) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(2, 5, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-2, 5, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 5, 2) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 5, -2) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+                       
+        worldIn.setBlockState(pos.add(0, 6, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(3, 6, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(-3, 6, 0) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 6, 3) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.add(0, 6, -3) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.YELLOW_BIG_FLOWER));
+        worldIn.setBlockState(pos.up(1), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		worldIn.setBlockState(pos.up(2), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		worldIn.setBlockState(pos.up(3), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		worldIn.setBlockState(pos.up(4), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		worldIn.setBlockState(pos.up(5), BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
 		
 	}
 
