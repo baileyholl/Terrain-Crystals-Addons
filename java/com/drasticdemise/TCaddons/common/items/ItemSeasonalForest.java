@@ -18,10 +18,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemOrchard extends BOPTerrainCrystalAbstract{
-	public ItemOrchard(){
-		setUnlocalizedName("itemOrchard");
-		setRegistryName("itemOrchard");
+public class ItemSeasonalForest extends BOPTerrainCrystalAbstract{
+	public ItemSeasonalForest(){
+		setUnlocalizedName("itemLavenderFields");
+		setRegistryName("itemLavenderFields");
 		setCreativeTab(CreativeTabs.tabBlock);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
@@ -33,7 +33,7 @@ public class ItemOrchard extends BOPTerrainCrystalAbstract{
 	@Override
 	public ActionResult<ItemStack> func_77659_a(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
-		super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.orchard.get(), true);
+		super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.seasonal_forest.get(), true);
 		return new ActionResult(EnumActionResult.PASS, itemStackIn);
 	}
 
@@ -55,27 +55,27 @@ public class ItemOrchard extends BOPTerrainCrystalAbstract{
 
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
-		
-		if(Math.random() < 0.5){
-			if(Math.random() < 0.8){
-				genGrass(worldIn, pos);
-			}else{
-				genFlowers(worldIn, pos);
-			}
-			if(Math.random() < 0.02 && spacedFarEnough(worldIn, pos)){
-				growTree(worldIn, pos);
-			}
-		}
+		// TODO Auto-generated method stub
 		
 	}
 	@Override
 	public void growTree(World worldIn, BlockPos pos) {
-		if(Math.random() < 0.5){
-			//Flowering Oak
-			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(5));
-		}else{
-			//Jacandara
+		double num = Math.random();
+		if(num < 0.5){
+			//Oak
 			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
+		}else if (num < 0.3){
+			//Yellow Autumn
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(0));
+		}else if (num < 0.3){
+			//Orange Autumn
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(1));
+		}else if (num < 0.3){
+			//Maple
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(3));
+		}else if(num < 0.3){
+			//Dying
+			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(5));
 		}
 		try{
 			IGrowable growable = (IGrowable) worldIn.getBlockState(pos.up()).getBlock();
@@ -90,26 +90,5 @@ public class ItemOrchard extends BOPTerrainCrystalAbstract{
 				worldIn.setBlockState(pos.up(), Blocks.air.getDefaultState());
 			}
 		}catch(Exception e){}
-		
-	}
-	@Override
-	public void genFlowers(World worldIn, BlockPos pos){
-		double num = Math.random();
-		if(num < 0.2){
-			//White Anemone
-			worldIn.setBlockState(pos.up(), BOPBlocks.flower_0.getStateFromMeta(9));
-		}else if(num < 0.4){
-			//Oxeye daisy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(8));
-		}else if (num < 0.6){
-			//Houstonia/Azure Blast
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(3));
-		}else if(num < .8){
-			//Poppy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getDefaultState());
-		}else{
-			//Dandelion
-			worldIn.setBlockState(pos.up(), Blocks.yellow_flower.getDefaultState());
-		}
 	}
 }

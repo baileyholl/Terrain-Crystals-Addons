@@ -5,6 +5,7 @@ import com.drasticdemise.TCaddons.common.items.ItemFlowerField;
 import com.drasticdemise.TCaddons.common.items.ItemFlowerIsland;
 import com.drasticdemise.TCaddons.common.items.ItemLavenderFields;
 import com.drasticdemise.TCaddons.common.items.ItemMysticGrove;
+import com.drasticdemise.TCaddons.common.items.ItemOrchard;
 import com.drasticdemise.TCaddons.common.items.ItemOriginIsland;
 
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,6 +18,7 @@ public class InitItems {
 	public static ItemFlowerField itemFlowerField;
 	public static ItemFlowerIsland itemFlowerIsland;
 	public static ItemLavenderFields itemLavenderFields;
+	public static ItemOrchard itemOrchard;
 	
 	public static void init(){
 		itemCherryBlossom = new ItemCherryBlossom();
@@ -25,6 +27,7 @@ public class InitItems {
 		itemFlowerField = new ItemFlowerField();
 		itemFlowerIsland = new ItemFlowerIsland();
 		itemLavenderFields = new ItemLavenderFields();
+		itemOrchard = new ItemOrchard();
 	}
 	public static void recipes(){
 
@@ -37,6 +40,7 @@ public class InitItems {
 		itemFlowerField.initModel();
 		itemFlowerIsland.initModel();
 		itemLavenderFields.initModel();
+		itemOrchard.initModel();
 	}
 }
 	
