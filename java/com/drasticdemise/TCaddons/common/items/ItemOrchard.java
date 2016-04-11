@@ -62,7 +62,7 @@ public class ItemOrchard extends BOPTerrainCrystalAbstract{
 			}else{
 				genFlowers(worldIn, pos);
 			}
-			if(Math.random() < 0.02 && spacedFarEnough(worldIn, pos)){
+			if(Math.random() < 0.02 && spacedFarEnough(worldIn, pos.up())){
 				growTree(worldIn, pos);
 			}
 		}
