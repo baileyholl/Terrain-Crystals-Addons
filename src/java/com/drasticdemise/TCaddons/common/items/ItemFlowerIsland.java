@@ -37,24 +37,6 @@ public class ItemFlowerIsland extends BOPTerrainCrystalAbstract{
 		super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.flower_island.get(), true);
 		return new ActionResult(EnumActionResult.PASS, itemStackIn);
 	}
-
-	@Override
-	protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated,
-			BiomeGenBase desiredBiome, boolean changeBiome) {
-		
-		if(eligibleStateLocation(worldIn, pos)){
-			int posY = MathHelper.floor_double(playerIn.posY);
-			if(posY - pos.getY() == 1){
-				super.setBiome(worldIn, pos, desiredBiome, changeBiome);
-				worldIn.setBlockState(pos, Blocks.grass.getDefaultState());
-				decoratePlatform(worldIn, pos);
-			}else{
-				worldIn.setBlockState(pos, Blocks.dirt.getDefaultState());
-			}
-		}
-		return blocksGenerated++;
-	}
-
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
 		if(Math.random() < 0.02 && spacedFarEnough(worldIn, pos.up(), 11)){

@@ -111,52 +111,6 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 	}
 	public abstract void growTree(World worldIn, BlockPos pos);
 	
-	protected boolean spacedFarEnough(World worldIn, BlockPos pos, int diameter){
-		int posX = pos.getX();
-		int posY = pos.getY();
-		int posZ = pos.getZ();
-		int center;
-		ArrayList<BlockPos> posList = new ArrayList<BlockPos>(13);
-		double radius = diameter/2.0;
-		if(diameter%2 != 0){
-			center = (int) (radius + 0.5);
-		}else{
-			center = (int) (radius);
-		}
-		int offsetXFirstHalf = (int) (posX + radius);
-		//Not sure why this has to be offset by 1 extra, but it does.
-		int offsetXSecondHalf = (int) (posX - radius + 1);
-		for(int i = 0; i < (center); i ++){
-			//Creates a circle and fills it
-			for(int placeInwards = 0; placeInwards < i+1; placeInwards++){
-				//Fills across the circle
-				BlockPos fillShellOne = new BlockPos(offsetXFirstHalf - i, posY, posZ - i + placeInwards);
-				posList.add(fillShellOne);
-				BlockPos fillShellTwo = new BlockPos(offsetXFirstHalf - i, posY, posZ + i - placeInwards);
-				posList.add(fillShellTwo);
-			}
-		}
-		//Generates the second half
-		for(int i = 0; i < (center); i ++){
-			BlockPos shellThree = new BlockPos(offsetXSecondHalf + i, posY, posZ  + i);
-			BlockPos shellFour = new BlockPos(offsetXSecondHalf + i, posY, posZ - i);
-			posList.add(shellThree); 
-			posList.add(shellFour);
-			
-			for(int placeInwards = 0; placeInwards < i + 1; placeInwards++){
-				BlockPos fillShellThree = new BlockPos(offsetXSecondHalf + i, posY, posZ + i - placeInwards);
-				BlockPos fillShellFour = new BlockPos(offsetXSecondHalf + i, posY, posZ - i + placeInwards);
-				posList.add(fillShellThree);
-				posList.add(fillShellFour);
-			}
-		}
-		for(BlockPos b : posList){
-			if(!eligibleSpaceForTree(worldIn.getBlockState(b), b)){
-				return false;
-			}
-		}
-		return true;
-	}
 	private static boolean eligibleSpaceForTree(IBlockState blockState, BlockPos pos){
 		if(pos.getY() > 1){
 			if(invalidSpaces.contains(blockState)){

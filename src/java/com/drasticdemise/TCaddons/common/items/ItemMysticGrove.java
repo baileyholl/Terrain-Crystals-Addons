@@ -39,25 +39,6 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 		super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.mystic_grove.get(), true);
 		return new ActionResult(EnumActionResult.PASS, itemStackIn);
 	}
-
-	@Override
-	protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated,
-			BiomeGenBase desiredBiome, boolean changeBiome) {
-		
-		if(eligibleStateLocation(worldIn, pos)){
-			int posY = MathHelper.floor_double(playerIn.posY);
-			if(posY - pos.getY() == 1){
-				super.setBiome(worldIn, pos, desiredBiome, changeBiome);
-				worldIn.setBlockState(pos, Blocks.grass.getDefaultState());
-				decoratePlatform(worldIn, pos);
-			}else{
-				worldIn.setBlockState(pos, Blocks.dirt.getDefaultState());
-			}
-			blocksGenerated++;
-		}
-		return blocksGenerated;
-	}
-
 	@Override
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
 		//Grass
@@ -93,19 +74,7 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 			//Oak
 			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
 		}
-		try{
-			IGrowable growable = (IGrowable) worldIn.getBlockState(pos.up()).getBlock();
-			int attemptCap = 0;
-			Random rand = new Random();
-			while((worldIn.getBlockState(pos.up()) != Blocks.log.getDefaultState()) && attemptCap < 10){
-				growable.grow(worldIn, rand, pos.up(), worldIn.getBlockState(pos.up()));
-				attemptCap++;
-			}
-			//Delete spare saplings
-			if(attemptCap > 9 && (worldIn.getBlockState(pos.up()).equals(BOPBlocks.sapling_1.getStateFromMeta(2)) || worldIn.getBlockState(pos.up()).equals(BOPBlocks.sapling_1.getStateFromMeta(1)))){
-				worldIn.setBlockState(pos.up(), Blocks.air.getDefaultState());
-			}
-		}catch(Exception e){}
+		bonemealTree(worldIn, pos);
 	}
 }
 
