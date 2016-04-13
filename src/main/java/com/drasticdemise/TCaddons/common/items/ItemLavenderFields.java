@@ -51,7 +51,6 @@ public class ItemLavenderFields extends BOPTerrainCrystalAbstract{
 			}
 		}
 	}
-	@Override
 	public void growTree(World worldIn, BlockPos pos) {
 		if(Math.random() < 0.5){
 			//Flowering Oak

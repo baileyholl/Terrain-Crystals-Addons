@@ -1,6 +1,7 @@
 package com.drasticdemise.TCaddons.common.items;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -9,42 +10,41 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemFlowerField extends BOPTerrainCrystalAbstract{
-	public ItemFlowerField(){
-		setUnlocalizedName("itemFlowerField");
-		setRegistryName("itemFlowerField");
+public class ItemMapleWoods extends BOPTerrainCrystalAbstract{
+	public ItemMapleWoods(){
+		setUnlocalizedName("itemMapleWoods");
+		setRegistryName("itemMapleWoods");
 		setCreativeTab(CreativeTabs.tabBlock);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
-		//setMaxDamage
 		setMaxDamage(7000);
 		GameRegistry.register(this);
+	}
+	@Override
+	protected void decoratePlatform(World worldIn, BlockPos pos) {
+		if(Math.random() < 0.5){
+			genGrass(worldIn, pos);
+		}
+		if(Math.random() < 0.08 && spacedFarEnough(worldIn, pos.up())){
+			if(Math.random() < 0.98){
+				//Maple
+				worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(3));
+			}else{
+				//Spruce
+				worldIn.setBlockState(pos.up(), Blocks.sapling.getStateFromMeta(1));
+			}
+			bonemealTree(worldIn, pos);
+		}
 	}
 
 	@Override
 	public ActionResult<ItemStack> func_77659_a(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
-		super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.flower_field.get(), true);
+		super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.maple_woods.get(), true);
 		return new ActionResult(EnumActionResult.PASS, itemStackIn);
 	}
 
-	@Override
-	protected void decoratePlatform(World worldIn, BlockPos pos) {
-		double num = Math.random();
-		if(num < 0.25){
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(4));
-		}else if(num < 0.5){
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(5));
-		}else if(num < .75){
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(6));
-		}else{
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(7));
-		}
-		
-	}
 }

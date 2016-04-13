@@ -145,8 +145,4 @@ public class ItemFlowerIsland extends BOPTerrainCrystalAbstract{
         worldIn.setBlockState(pos.add(0, 8, 3) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.RED_BIG_FLOWER));
         worldIn.setBlockState(pos.add(0, 8, -3) ,BlockBOPLeaves.paging.getVariantState(BOPTrees.RED_BIG_FLOWER));
 	}
-
-	@Override
-	public void growTree(World worldIn, BlockPos pos) {
-	}
 }

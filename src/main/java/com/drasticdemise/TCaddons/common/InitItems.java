@@ -1,9 +1,11 @@
 package com.drasticdemise.TCaddons.common;
 
+import com.drasticdemise.TCaddons.common.items.ItemBambooForest;
 import com.drasticdemise.TCaddons.common.items.ItemCherryBlossom;
 import com.drasticdemise.TCaddons.common.items.ItemFlowerField;
 import com.drasticdemise.TCaddons.common.items.ItemFlowerIsland;
 import com.drasticdemise.TCaddons.common.items.ItemLavenderFields;
+import com.drasticdemise.TCaddons.common.items.ItemMapleWoods;
 import com.drasticdemise.TCaddons.common.items.ItemMysticGrove;
 import com.drasticdemise.TCaddons.common.items.ItemOrchard;
 import com.drasticdemise.TCaddons.common.items.ItemOriginIsland;
@@ -21,7 +23,8 @@ public class InitItems {
 	public static ItemLavenderFields itemLavenderFields;
 	public static ItemOrchard itemOrchard;
 	public static ItemSeasonalForest itemSeasonalForest;
-	
+	public static ItemMapleWoods itemMapleWoods;
+	public static ItemBambooForest itemBambooForest;
 	public static void init(){
 		itemCherryBlossom = new ItemCherryBlossom();
 		itemOriginIsland = new ItemOriginIsland();
@@ -31,6 +34,8 @@ public class InitItems {
 		itemLavenderFields = new ItemLavenderFields();
 		itemOrchard = new ItemOrchard();
 		itemSeasonalForest = new ItemSeasonalForest();
+		itemMapleWoods = new ItemMapleWoods();
+		itemBambooForest = new ItemBambooForest();
 	}
 	public static void recipes(){
 
@@ -45,6 +50,8 @@ public class InitItems {
 		itemLavenderFields.initModel();
 		itemOrchard.initModel();
 		itemSeasonalForest.initModel();
+		itemMapleWoods.initModel();
+		itemBambooForest.initModel();
 	}
 }
 	

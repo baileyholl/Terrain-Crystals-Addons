@@ -47,6 +47,8 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 			TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.log_4.getStateFromMeta(i));
 		}
 		TerrainCrystalAbstract.invalidSpaces.add(BlockBOPLog.paging.getVariantState(BOPWoods.GIANT_FLOWER));
+		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.bamboo.getDefaultState());
+		TerrainCrystalAbstract.invalidSpaces.add(BOPBlocks.bamboo_thatching.getDefaultState());
 	}
 	
 	/**
@@ -109,8 +111,6 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 			worldIn.setBlockState(pos.up(), BOPBlocks.plant_0.getStateFromMeta(8));
 		}
 	}
-	public abstract void growTree(World worldIn, BlockPos pos);
-	
 	private static boolean eligibleSpaceForTree(IBlockState blockState, BlockPos pos){
 		if(pos.getY() > 1){
 			if(invalidSpaces.contains(blockState)){

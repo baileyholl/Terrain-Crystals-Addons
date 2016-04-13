@@ -52,17 +52,15 @@ public class ItemMysticGrove extends BOPTerrainCrystalAbstract{
 		if(Math.random() < 0.03 && spacedFarEnough(worldIn, pos.up())){
 			growTree(worldIn, pos);
 		}
-		
-	}
 
-	@Override
+	}
 	public void growTree(World worldIn, BlockPos pos) {
 		//sapling_01 5,6
 		//sapling_0  3
 		//default oak
 		double num = Math.random();
 		if(num < 0.25){
-			//Fl;owering oak
+			//Flowering oak
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(5));
 		}else if(num < .50){
 			//Jacandara

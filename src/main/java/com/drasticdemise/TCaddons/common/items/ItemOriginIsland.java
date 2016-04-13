@@ -45,7 +45,8 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 			int posY = MathHelper.floor_double(playerIn.posY);
 			if(posY - pos.getY() == 1){
 				super.setBiome(worldIn, pos, desiredBiome, changeBiome);
-				worldIn.setBlockState(pos, BOPBlocks.grass.getStateFromMeta(10));
+				
+				worldIn.setBlockState(pos, BOPBlocks.grass.getStateFromMeta(5));
 				decoratePlatform(worldIn, pos);
 			}else{
 				worldIn.setBlockState(pos, Blocks.dirt.getDefaultState());
