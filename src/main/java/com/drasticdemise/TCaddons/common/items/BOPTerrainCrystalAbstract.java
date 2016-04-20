@@ -111,7 +111,7 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 			worldIn.setBlockState(pos.up(), BOPBlocks.plant_0.getStateFromMeta(8));
 		}
 	}
-	private static boolean eligibleSpaceForTree(IBlockState blockState, BlockPos pos){
+	protected static boolean eligibleSpaceForTree(IBlockState blockState, BlockPos pos){
 		if(pos.getY() > 1){
 			if(invalidSpaces.contains(blockState)){
 				return false;

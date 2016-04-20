@@ -2,13 +2,16 @@ package com.drasticdemise.TCaddons.common;
 
 import com.drasticdemise.TCaddons.common.items.ItemBambooForest;
 import com.drasticdemise.TCaddons.common.items.ItemCherryBlossom;
+import com.drasticdemise.TCaddons.common.items.ItemConiferousForest;
 import com.drasticdemise.TCaddons.common.items.ItemFlowerField;
 import com.drasticdemise.TCaddons.common.items.ItemFlowerIsland;
 import com.drasticdemise.TCaddons.common.items.ItemLavenderFields;
 import com.drasticdemise.TCaddons.common.items.ItemMapleWoods;
 import com.drasticdemise.TCaddons.common.items.ItemMysticGrove;
+import com.drasticdemise.TCaddons.common.items.ItemOminousWoods;
 import com.drasticdemise.TCaddons.common.items.ItemOrchard;
 import com.drasticdemise.TCaddons.common.items.ItemOriginIsland;
+import com.drasticdemise.TCaddons.common.items.ItemSacredSprings;
 import com.drasticdemise.TCaddons.common.items.ItemSeasonalForest;
 
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,6 +28,9 @@ public class InitItems {
 	public static ItemSeasonalForest itemSeasonalForest;
 	public static ItemMapleWoods itemMapleWoods;
 	public static ItemBambooForest itemBambooForest;
+	public static ItemConiferousForest itemConiferousForest;
+	public static ItemOminousWoods itemOminousWoods;
+	public static ItemSacredSprings itemSacredSprings;
 	public static void init(){
 		itemCherryBlossom = new ItemCherryBlossom();
 		itemOriginIsland = new ItemOriginIsland();
@@ -36,6 +42,9 @@ public class InitItems {
 		itemSeasonalForest = new ItemSeasonalForest();
 		itemMapleWoods = new ItemMapleWoods();
 		itemBambooForest = new ItemBambooForest();
+		itemConiferousForest = new ItemConiferousForest();
+		itemOminousWoods = new ItemOminousWoods();
+		itemSacredSprings = new ItemSacredSprings();
 	}
 	public static void recipes(){
 
@@ -52,6 +61,9 @@ public class InitItems {
 		itemSeasonalForest.initModel();
 		itemMapleWoods.initModel();
 		itemBambooForest.initModel();
+		itemConiferousForest.initModel();
+		itemOminousWoods.initModel();
+		itemSacredSprings.initModel();
 	}
 }
 	

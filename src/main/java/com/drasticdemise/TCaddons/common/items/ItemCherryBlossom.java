@@ -49,7 +49,7 @@ public class ItemCherryBlossom extends BOPTerrainCrystalAbstract{
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
 		
 		if(Math.random() < .6){
-			super.genGrass(worldIn, pos);
+			genGrass(worldIn, pos);
 			if(Math.random() < 0.15){
 				genFlowers(worldIn, pos);
 			}
