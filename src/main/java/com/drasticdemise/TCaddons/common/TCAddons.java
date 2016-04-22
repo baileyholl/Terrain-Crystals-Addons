@@ -9,14 +9,15 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = TCAddons.MODID, name = TCAddons.MODNAME, useMetadata = true, version = TCAddons.VERSION)
+@Mod(modid = TCAddons.MODID, name = TCAddons.MODNAME, useMetadata = true, version = TCAddons.VERSION, dependencies  = TCAddons.DEPENDENCIES)
 
 
 public class TCAddons {
 	public static final String MODID = "terrainCrystalsAddons";
 	public static final String MODNAME = "Terrain CrystalsAddons";
 	public static final String VERSION = "1.0.0";
-	public static final String URL = "https://raw.githubusercontent.com/DrasticDemise/Terrain-Crystals/master/1.9%20Update%20Handler";
+	public static final String URL = "https://raw.githubusercontent.com/DrasticDemise/Terrain-Crystals-Addons/master/1.9%20Update%20Handler";
+	public static final String DEPENDENCIES = "required-after:terrainCrystals;required-after:BiomesOPlenty";
 
 	@SidedProxy
 	public static CommonProxy proxy;
@@ -42,14 +43,13 @@ public class TCAddons {
 	
 	public static class CommonProxy {
 		public void preInit(FMLPreInitializationEvent e){
-			Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+		//	Configuration config = new Configuration(e.getSuggestedConfigurationFile());
 		//	ConfigurationFile.configFile(config);
 			//Initialization of Blocks and Items
 			InitItems.init();
 		}
 		public void init(FMLInitializationEvent e){
 			InitItems.recipes();
-		//	TerrainCrystalAbstract.initReplaceableBlocks();
 		}
 		public void postInit(FMLPostInitializationEvent e){
 			
@@ -63,7 +63,7 @@ public class TCAddons {
 			super.preInit(e);
 			//Initialization of models
 			InitItems.initModels();
-		//	new VersionChecker().init();
+			new VersionChecker().init();
 		}
 
 	}
