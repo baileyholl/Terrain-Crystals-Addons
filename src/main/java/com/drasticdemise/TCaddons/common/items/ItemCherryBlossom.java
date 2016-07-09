@@ -19,7 +19,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
@@ -32,7 +31,7 @@ public class ItemCherryBlossom extends BOPTerrainCrystalAbstract{
 	public ItemCherryBlossom(){
 		setUnlocalizedName("itemCherryBlossom");
 		setRegistryName("itemCherryBlossom");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		//setMaxDamage
@@ -71,10 +70,10 @@ public class ItemCherryBlossom extends BOPTerrainCrystalAbstract{
 			worldIn.setBlockState(pos.up(), BOPBlocks.flower_0.getStateFromMeta(0));
 		}else if(num < 0.64){
 			//Oxeye daisy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(8));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(8));
 		}else if(num < 0.80){
 			//Houstonia/Azure Blast
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(3));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(3));
 		}
 	}
 

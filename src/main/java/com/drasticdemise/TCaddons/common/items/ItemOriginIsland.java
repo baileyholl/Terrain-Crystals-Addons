@@ -17,7 +17,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemOriginIsland extends TerrainCrystalAbstract{
@@ -25,7 +25,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 	public ItemOriginIsland(){
 		setUnlocalizedName("itemOriginIsland");
 		setRegistryName("itemOriginIsland");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		//setMaxDamage
@@ -40,7 +40,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 	}
 	@Override
 	protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated,
-			BiomeGenBase desiredBiome, boolean changeBiome) {
+			Biome desiredBiome, boolean changeBiome) {
 		if(eligibleStateLocation(worldIn, pos)){
 			int posY = MathHelper.floor_double(playerIn.posY);
 			if(posY - pos.getY() == 1){
@@ -49,7 +49,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 				worldIn.setBlockState(pos, BOPBlocks.grass.getStateFromMeta(5));
 				decoratePlatform(worldIn, pos);
 			}else{
-				worldIn.setBlockState(pos, Blocks.dirt.getDefaultState());
+				worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState());
 			}
 			blocksGenerated++;
 		}
@@ -66,7 +66,7 @@ public class ItemOriginIsland extends TerrainCrystalAbstract{
 					worldIn.setBlockState(pos.up(), BOPBlocks.flower_1.getStateFromMeta(5));
 				}else{
 					//Yellow flower
-					worldIn.setBlockState(pos.up(), Blocks.yellow_flower.getDefaultState());
+					worldIn.setBlockState(pos.up(), Blocks.YELLOW_FLOWER.getDefaultState());
 				}
 			}
 			if(Math.random() <= 0.01){

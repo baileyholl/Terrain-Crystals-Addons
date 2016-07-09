@@ -18,7 +18,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 	
@@ -72,19 +71,19 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 			worldIn.setBlockState(pos.up(), BOPBlocks.flower_0.getStateFromMeta(3));
 		}else if(num < 0.55){
 			//Oxeye daisy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(8));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(8));
 		}else if (num < 0.66){
 			//Houstonia/Azure Blast
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(3));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(3));
 		}else if(num < 0.77){
 			//Blue Hydrangea
 			worldIn.setBlockState(pos.up(), BOPBlocks.flower_0.getStateFromMeta(4));
 		}else if(num < .88){
 			//Poppy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getDefaultState());
 		}else{
 			//Dandelion
-			worldIn.setBlockState(pos.up(), Blocks.yellow_flower.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.YELLOW_FLOWER.getDefaultState());
 		}
 	}
 	/**
@@ -96,7 +95,7 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract{
 		double num = Math.random();
 		if(num < 0.2){
 			//Minecraft Grass
-			worldIn.setBlockState(pos.up(), Blocks.tallgrass.getStateFromMeta(1));
+			worldIn.setBlockState(pos.up(), Blocks.TALLGRASS.getStateFromMeta(1));
 		}else if(num < .4){
 			//BOP Short Grass
 			worldIn.setBlockState(pos.up(), BOPBlocks.plant_0.getDefaultState());

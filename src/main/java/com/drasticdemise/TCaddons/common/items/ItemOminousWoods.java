@@ -17,7 +17,7 @@ public class ItemOminousWoods extends BOPTerrainCrystalAbstract{
 	public ItemOminousWoods(){
 		setUnlocalizedName("itemOminousWoods");
 		setRegistryName("itemOminousWoods");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		setMaxDamage(7000);

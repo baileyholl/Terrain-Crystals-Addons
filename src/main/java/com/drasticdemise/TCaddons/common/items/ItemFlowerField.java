@@ -11,14 +11,13 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemFlowerField extends BOPTerrainCrystalAbstract{
 	public ItemFlowerField(){
 		setUnlocalizedName("itemFlowerField");
 		setRegistryName("itemFlowerField");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		//setMaxDamage
@@ -37,13 +36,13 @@ public class ItemFlowerField extends BOPTerrainCrystalAbstract{
 	protected void decoratePlatform(World worldIn, BlockPos pos) {
 		double num = Math.random();
 		if(num < 0.25){
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(4));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(4));
 		}else if(num < 0.5){
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(5));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(5));
 		}else if(num < .75){
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(6));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(6));
 		}else{
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(7));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(7));
 		}
 		
 	}

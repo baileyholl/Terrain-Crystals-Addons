@@ -15,14 +15,13 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemOrchard extends BOPTerrainCrystalAbstract{
 	public ItemOrchard(){
 		setUnlocalizedName("itemOrchard");
 		setRegistryName("itemOrchard");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		//setMaxDamage
@@ -57,7 +56,7 @@ public class ItemOrchard extends BOPTerrainCrystalAbstract{
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(5));
 		}else{
 			//Jacandara
-			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.SAPLING.getDefaultState());
 		}
 		bonemealTree(worldIn, pos);
 		
@@ -70,16 +69,16 @@ public class ItemOrchard extends BOPTerrainCrystalAbstract{
 			worldIn.setBlockState(pos.up(), BOPBlocks.flower_0.getStateFromMeta(9));
 		}else if(num < 0.4){
 			//Oxeye daisy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(8));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(8));
 		}else if (num < 0.6){
 			//Houstonia/Azure Blast
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getStateFromMeta(3));
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(3));
 		}else if(num < .8){
 			//Poppy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getDefaultState());
 		}else{
 			//Dandelion
-			worldIn.setBlockState(pos.up(), Blocks.yellow_flower.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.YELLOW_FLOWER.getDefaultState());
 		}
 	}
 }

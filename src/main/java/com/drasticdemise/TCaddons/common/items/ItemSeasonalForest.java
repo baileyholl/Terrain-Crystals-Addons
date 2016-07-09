@@ -1,10 +1,7 @@
 package com.drasticdemise.TCaddons.common.items;
 
-import java.util.Random;
-
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -13,16 +10,14 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemSeasonalForest extends BOPTerrainCrystalAbstract{
 	public ItemSeasonalForest(){
 		setUnlocalizedName("itemSeasonalForest");
 		setRegistryName("itemSeasonalForest");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		//setMaxDamage
@@ -53,7 +48,7 @@ public class ItemSeasonalForest extends BOPTerrainCrystalAbstract{
 		double num = Math.random();
 		if(num < 0.25){
 			//Oak
-			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.SAPLING.getDefaultState());
 		}else if (num < 0.45){
 			//Yellow Autumn
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(0));
@@ -75,10 +70,11 @@ public class ItemSeasonalForest extends BOPTerrainCrystalAbstract{
 		double num = Math.random();
 		if(num < 0.5){
 			//Poppy
-			worldIn.setBlockState(pos.up(), Blocks.red_flower.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getDefaultState());
 		}else{
 			//Dandelion
-			worldIn.setBlockState(pos.up(), Blocks.yellow_flower.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.YELLOW_FLOWER.getDefaultState());
 		}
 	}
+
 }

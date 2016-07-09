@@ -17,7 +17,7 @@ public class ItemMapleWoods extends BOPTerrainCrystalAbstract{
 	public ItemMapleWoods(){
 		setUnlocalizedName("itemMapleWoods");
 		setRegistryName("itemMapleWoods");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		setMaxDamage(7000);
@@ -34,7 +34,7 @@ public class ItemMapleWoods extends BOPTerrainCrystalAbstract{
 				worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(3));
 			}else{
 				//Spruce
-				worldIn.setBlockState(pos.up(), Blocks.sapling.getStateFromMeta(1));
+				worldIn.setBlockState(pos.up(), Blocks.SAPLING.getStateFromMeta(1));
 			}
 			bonemealTree(worldIn, pos);
 		}

@@ -18,7 +18,7 @@ public class ItemSacredSprings extends BOPTerrainCrystalAbstract{
 	public ItemSacredSprings(){
 		setUnlocalizedName("itemSacredSprings");
 		setRegistryName("itemSacredSprings");
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		setHarvestLevel("stone", 0);
 		setMaxStackSize(1);
 		//setMaxDamage
@@ -45,7 +45,7 @@ public class ItemSacredSprings extends BOPTerrainCrystalAbstract{
 
 	private void growTree(World worldIn, BlockPos pos) {
 		if(Math.random() < .95){
-			worldIn.setBlockState(pos.up(), Blocks.sapling.getDefaultState());
+			worldIn.setBlockState(pos.up(), Blocks.SAPLING.getDefaultState());
 		}else{
 			worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(7));
 		}
