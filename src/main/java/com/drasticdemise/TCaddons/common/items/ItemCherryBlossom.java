@@ -1,29 +1,17 @@
 package com.drasticdemise.TCaddons.common.items;
 
-import java.util.Random;
-
-import com.DrasticDemise.TerrainCrystals.ConfigurationFile;
-import com.DrasticDemise.TerrainCrystals.Items.TerrainCrystalAbstract;
-
-import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.state.IBlockState;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.biome.overworld.BiomeGenCherryBlossomGrove;
-import biomesoplenty.common.enums.BOPFlowers;
 
 public class ItemCherryBlossom extends BOPTerrainCrystalAbstract{
 	
