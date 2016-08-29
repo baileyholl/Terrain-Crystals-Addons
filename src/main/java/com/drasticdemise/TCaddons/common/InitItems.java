@@ -62,7 +62,7 @@ public class InitItems {
 		ItemStack bRodStack = new ItemStack(Items.BLAZE_ROD);
 		ItemStack pearlStack = new ItemStack(Items.ENDER_PEARL);
 		ItemStack melonSeedStack = new ItemStack(Items.MELON_SEEDS);
-		ItemStack sugarcaneStack = new ItemStack(Blocks.REEDS);
+		ItemStack sugarcaneStack = new ItemStack(Items.REEDS);
 		
 		ItemStack oakLeaves = new ItemStack(Blocks.LEAVES);
 		ItemStack appleStack = new ItemStack(Items.APPLE);
@@ -70,6 +70,7 @@ public class InitItems {
 		ItemStack spruceStack = new ItemStack(Blocks.LOG.getStateFromMeta(1).getBlock());
 		ItemStack jungleStack = new ItemStack(Blocks.LOG.getStateFromMeta(3).getBlock());
 		ItemStack poppyStack = new ItemStack(Blocks.RED_FLOWER);
+		ItemStack dandelionStack = new ItemStack(Blocks.YELLOW_FLOWER);
 		ItemStack oxeyeDaisyStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(8).getBlock());
 		ItemStack pinkTulipStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(7).getBlock());
 		ItemStack whiteTulipStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(6).getBlock());
@@ -104,19 +105,19 @@ public class InitItems {
 			    "xyx",
 			    "ywy",
 			    "xyx",
-			    'w', goldBlockStack,'x', redTulipStack, 'y',orangeTulipStack);
+			    'w', goldBlockStack,'x', poppyStack, 'y',dandelionStack);
 		GameRegistry.addRecipe(
 			    new ItemStack(InitItems.itemFlowerIsland),
-			    "xxx",
+			    "yxy",
 			    "xwx",
-			    "xxx",
-			    'w', goldBlockStack,'x', poppyStack);
+			    "yxy",
+			    'w', goldBlockStack,'x', poppyStack, 'y', dandelionStack);
 		GameRegistry.addRecipe(
 			    new ItemStack(InitItems.itemLavenderFields),
 			    "xxx",
-			    "xwx",
+			    "ywy",
 			    "xxx",
-			    'w', goldBlockStack,'x', alliumStack);
+			    'w', goldBlockStack,'x', poppyStack, 'y', dandelionStack);
 		GameRegistry.addRecipe(
 			    new ItemStack(InitItems.itemMapleWoods),
 			    "yxx",
