@@ -2,36 +2,17 @@ package com.drasticdemise.TCaddons.common.items;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ItemBambooForest extends BOPTerrainCrystalAbstract {
-    public ItemBambooForest() {
-        setUnlocalizedName("itemBambooForest");
-        setRegistryName("itemBambooForest");
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        setHarvestLevel("stone", 0);
-        setMaxStackSize(1);
-        //setMaxDamage
-        setMaxDamage(7000);
-        GameRegistry.register(this);
-    }
 
-    @Override
-    public ActionResult<ItemStack> func_77659_a(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-                                                EnumHand hand) {
-        super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.bamboo_forest.get(), true);
-        return new ActionResult(EnumActionResult.PASS, itemStackIn);
+    public ItemBambooForest() {
+        super("BambooForest");
     }
 
     protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated, Biome desiredBiome, boolean changeBiome) {
@@ -66,7 +47,7 @@ public class ItemBambooForest extends BOPTerrainCrystalAbstract {
         }
     }
 
-    protected void genBush(World worldIn, BlockPos pos) {
+    private void genBush(World worldIn, BlockPos pos) {
         worldIn.setBlockState(pos.up(), Blocks.LEAVES.getDefaultState());
         worldIn.setBlockState(pos.up(2), Blocks.LEAVES.getDefaultState());
         worldIn.setBlockState(pos.up().east(), Blocks.LEAVES.getDefaultState());
@@ -80,6 +61,10 @@ public class ItemBambooForest extends BOPTerrainCrystalAbstract {
             worldIn.setBlockState(pos.up().south().west(), Blocks.LEAVES.getDefaultState());
         }
         worldIn.setBlockState(pos, Blocks.LOG.getStateFromMeta(3));
+    }
+    @Override
+    protected Biome getBiomeType() {
+        return BOPBiomes.bamboo_forest.get();
     }
 
 }

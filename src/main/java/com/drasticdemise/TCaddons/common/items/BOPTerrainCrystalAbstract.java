@@ -3,13 +3,38 @@ package com.drasticdemise.TCaddons.common.items;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.block.BlockBOPLog;
-import com.DrasticDemise.TerrainCrystals.Items.TerrainCrystalAbstract;
+import com.BaileyHollingsworth.TerrainCrystals.Items.TerrainCrystalAbstract;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract {
+
+    public final static int DIAMETER = 11;
+    public final static int DURABILITY = 7000;
+    public BOPTerrainCrystalAbstract(String name){
+        super(name);
+    }
+
+    public BOPTerrainCrystalAbstract(String name, boolean hasGroundCrystal){
+        super(name, hasGroundCrystal);
+    }
+
+    @Override
+    protected Boolean changesBiomeOnUse() {
+        return true;
+    }
+
+    @Override
+    protected int getDiameter() {
+        return BOPTerrainCrystalAbstract.DIAMETER;
+    }
+
+    @Override
+    protected int getDurability() {
+        return BOPTerrainCrystalAbstract.DURABILITY;
+    }
 
     public static void initInvalidBOPSpaces() {
         //The nuclear option

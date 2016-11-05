@@ -2,38 +2,18 @@ package com.drasticdemise.TCaddons.common.items;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
-import com.DrasticDemise.TerrainCrystals.Items.TerrainCrystalAbstract;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemOriginIsland extends TerrainCrystalAbstract {
+public class ItemOriginIsland extends BOPTerrainCrystalAbstract {
+
 
     public ItemOriginIsland() {
-        setUnlocalizedName("itemOriginIsland");
-        setRegistryName("itemOriginIsland");
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        setHarvestLevel("stone", 0);
-        setMaxStackSize(1);
-        //setMaxDamage
-        setMaxDamage(7000);
-        GameRegistry.register(this);
-    }
-
-    @Override
-    public ActionResult<ItemStack> func_77659_a(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-                                                EnumHand hand) {
-        super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.origin_island.get(), true);
-        return new ActionResult(EnumActionResult.PASS, itemStackIn);
+        super("OriginIsland");
     }
 
     @Override
@@ -73,5 +53,11 @@ public class ItemOriginIsland extends TerrainCrystalAbstract {
                 bonemealTree(worldIn, pos);
             }
         }
+    }
+
+
+    @Override
+    protected Biome getBiomeType() {
+        return BOPBiomes.origin_island.get();
     }
 }

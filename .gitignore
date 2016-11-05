@@ -4,6 +4,8 @@ config
 options.txt
 usercache.json
 usernamecache.json
+logs
+libs
 # eclipse
 bin
 *.launch
@@ -11,6 +13,7 @@ bin
 .metadata
 .classpath
 .project
+libs
 # idea
 out
 *.ipr

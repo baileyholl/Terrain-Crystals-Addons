@@ -5,34 +5,14 @@ import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.world.biome.Biome;
 
 public class ItemFlowerIsland extends BOPTerrainCrystalAbstract {
 
     public ItemFlowerIsland() {
-        setUnlocalizedName("itemFlowerIsland");
-        setRegistryName("itemFlowerIsland");
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        setHarvestLevel("stone", 0);
-        setMaxStackSize(1);
-        //setMaxDamage
-        setMaxDamage(7000);
-        GameRegistry.register(this);
-    }
-
-    @Override
-    public ActionResult<ItemStack> func_77659_a(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-                                                EnumHand hand) {
-        super.gatherBlockGenList(itemStackIn, worldIn, playerIn, 11, BOPBiomes.flower_island.get(), true);
-        return new ActionResult(EnumActionResult.PASS, itemStackIn);
+        super("FlowerIsland");
     }
 
     @Override
@@ -46,6 +26,11 @@ public class ItemFlowerIsland extends BOPTerrainCrystalAbstract {
         } else {
             genGrass(worldIn, pos);
         }
+    }
+
+    @Override
+    protected Biome getBiomeType() {
+        return BOPBiomes.flower_island.get();
     }
 
     private void generateYellowFlower(World worldIn, BlockPos pos) {
@@ -92,7 +77,6 @@ public class ItemFlowerIsland extends BOPTerrainCrystalAbstract {
 
     private void generateRedFlower(World worldIn, BlockPos pos) {
         //BlockBOPLeaves.paging.getVariantState(BOPTrees.RED_BIG_FLOWER) - Red stem
-
 
         worldIn.setBlockState(pos.add(-1, 4, 0), BlockBOPLeaves.paging.getVariantState(BOPTrees.RED_BIG_FLOWER));
         worldIn.setBlockState(pos.add(1, 4, 0), BlockBOPLeaves.paging.getVariantState(BOPTrees.RED_BIG_FLOWER));
