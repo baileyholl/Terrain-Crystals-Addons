@@ -2,6 +2,7 @@ package com.drasticdemise.TCaddons.common.items;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
+import com.BaileyHollingsworth.TerrainCrystals.core.ConfigurationFile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -16,20 +17,23 @@ public class ItemOriginIsland extends BOPTerrainCrystalAbstract {
         super("OriginIsland");
     }
 
-    @Override
-    protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated,
-                                        Biome desiredBiome, boolean changeBiome) {
+    protected int generateBlocksInWorld(BlockPos pos, World worldIn, EntityPlayer playerIn, int blocksGenerated, Biome desiredBiome, boolean changeBiome) {
         if (eligibleStateLocation(worldIn, pos)) {
             int posY = MathHelper.floor_double(playerIn.posY);
             if (posY - pos.getY() == 1) {
-                super.setBiome(worldIn, pos, desiredBiome, changeBiome);
-
+                setBiome(worldIn, pos, desiredBiome, changeBiome);
                 worldIn.setBlockState(pos, BOPBlocks.grass.getStateFromMeta(5));
                 decoratePlatform(worldIn, pos);
+            } else if (ConfigurationFile.generateStone && posY - pos.getY() >= ConfigurationFile.stoneSpawnDepth) {
+                if (ConfigurationFile.generateOres && Math.random() < 0.05) {
+                    worldIn.setBlockState(pos, oreListHelper());
+                } else {
+                    worldIn.setBlockState(pos, Blocks.STONE.getDefaultState());
+                }
             } else {
                 worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState());
             }
-            blocksGenerated++;
+            blocksGenerated += 1;
         }
         return blocksGenerated;
     }

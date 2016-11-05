@@ -2,6 +2,7 @@ package com.drasticdemise.TCaddons.common.items;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
+import com.BaileyHollingsworth.TerrainCrystals.core.ConfigurationFile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +23,12 @@ public class ItemBambooForest extends BOPTerrainCrystalAbstract {
                 setBiome(worldIn, pos, desiredBiome, changeBiome);
                 worldIn.setBlockState(pos, Blocks.DIRT.getStateFromMeta(2));
                 decoratePlatform(worldIn, pos);
+            } else if (ConfigurationFile.generateStone && posY - pos.getY() >= ConfigurationFile.stoneSpawnDepth) {
+                if (ConfigurationFile.generateOres && Math.random() < 0.05) {
+                    worldIn.setBlockState(pos, oreListHelper());
+                } else {
+                    worldIn.setBlockState(pos, Blocks.STONE.getDefaultState());
+                }
             } else {
                 worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState());
             }
@@ -62,6 +69,7 @@ public class ItemBambooForest extends BOPTerrainCrystalAbstract {
         }
         worldIn.setBlockState(pos, Blocks.LOG.getStateFromMeta(3));
     }
+
     @Override
     protected Biome getBiomeType() {
         return BOPBiomes.bamboo_forest.get();

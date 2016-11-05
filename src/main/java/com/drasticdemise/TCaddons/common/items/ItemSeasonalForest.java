@@ -12,7 +12,6 @@ public class ItemSeasonalForest extends BOPTerrainCrystalAbstract {
         super("SeasonalForest");
     }
 
-
     @Override
     protected void decoratePlatform(World worldIn, BlockPos pos) {
         if (Math.random() < 0.5) {

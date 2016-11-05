@@ -13,27 +13,13 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract {
 
     public final static int DIAMETER = 11;
     public final static int DURABILITY = 7000;
-    public BOPTerrainCrystalAbstract(String name){
+
+    public BOPTerrainCrystalAbstract(String name) {
         super(name);
     }
 
-    public BOPTerrainCrystalAbstract(String name, boolean hasGroundCrystal){
+    public BOPTerrainCrystalAbstract(String name, boolean hasGroundCrystal) {
         super(name, hasGroundCrystal);
-    }
-
-    @Override
-    protected Boolean changesBiomeOnUse() {
-        return true;
-    }
-
-    @Override
-    protected int getDiameter() {
-        return BOPTerrainCrystalAbstract.DIAMETER;
-    }
-
-    @Override
-    protected int getDurability() {
-        return BOPTerrainCrystalAbstract.DURABILITY;
     }
 
     public static void initInvalidBOPSpaces() {
@@ -73,6 +59,21 @@ public abstract class BOPTerrainCrystalAbstract extends TerrainCrystalAbstract {
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected Boolean changesBiomeOnUse() {
+        return true;
+    }
+
+    @Override
+    protected int getDiameter() {
+        return BOPTerrainCrystalAbstract.DIAMETER;
+    }
+
+    @Override
+    protected int getDurability() {
+        return BOPTerrainCrystalAbstract.DURABILITY;
     }
 
     /**
