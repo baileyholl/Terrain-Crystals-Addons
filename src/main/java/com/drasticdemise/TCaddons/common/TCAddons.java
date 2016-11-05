@@ -41,8 +41,7 @@ public class TCAddons {
 
     public static class CommonProxy {
         public void preInit(FMLPreInitializationEvent e) {
-            //	Configuration config = new Configuration(e.getSuggestedConfigurationFile());
-            //	ConfigurationFile.configFile(config);
+
             //Initialization of Blocks and Items
             InitItems.init();
         }
@@ -54,6 +53,7 @@ public class TCAddons {
         public void postInit(FMLPostInitializationEvent e) {
 
             BOPTerrainCrystalAbstract.initInvalidBOPSpaces();
+            InitItems.recipes();
         }
     }
 

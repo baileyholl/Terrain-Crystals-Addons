@@ -1,8 +1,6 @@
 package com.drasticdemise.TCaddons.common;
 
 import com.drasticdemise.TCaddons.common.items.*;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -40,114 +38,77 @@ public class InitItems {
     }
 
     public static void recipes() {
-        ItemStack dirtStack = new ItemStack(Blocks.DIRT);
-        ItemStack sandStack = new ItemStack(Blocks.SAND);
-        ItemStack hardenedClayStack = new ItemStack(Blocks.HARDENED_CLAY);
-        ItemStack grassBlockStack = new ItemStack(Blocks.GRASS);
-        ItemStack snowballStack = new ItemStack(Items.SNOWBALL);
-        ItemStack clayBlockStack = new ItemStack(Blocks.CLAY);
-        ItemStack slimeBallStack = new ItemStack(Items.SLIME_BALL);
-        ItemStack bRodStack = new ItemStack(Items.BLAZE_ROD);
-        ItemStack pearlStack = new ItemStack(Items.ENDER_PEARL);
-        ItemStack melonSeedStack = new ItemStack(Items.MELON_SEEDS);
-        ItemStack sugarcaneStack = new ItemStack(Items.REEDS);
-
-        ItemStack oakLeaves = new ItemStack(Blocks.LEAVES);
-        ItemStack appleStack = new ItemStack(Items.APPLE);
-        ItemStack oakStack = new ItemStack(Blocks.LOG);
-        ItemStack spruceStack = new ItemStack(Blocks.LOG.getStateFromMeta(1).getBlock());
-        ItemStack jungleStack = new ItemStack(Blocks.LOG.getStateFromMeta(3).getBlock());
-        ItemStack poppyStack = new ItemStack(Blocks.RED_FLOWER);
-        ItemStack dandelionStack = new ItemStack(Blocks.YELLOW_FLOWER);
-        ItemStack oxeyeDaisyStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(8).getBlock());
-        ItemStack pinkTulipStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(7).getBlock());
-        ItemStack whiteTulipStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(6).getBlock());
-        ItemStack blueOrchidStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(1).getBlock());
-        ItemStack redTulipStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(4).getBlock());
-        ItemStack orangeTulipStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(5).getBlock());
-        ItemStack alliumStack = new ItemStack(Blocks.RED_FLOWER.getStateFromMeta(2).getBlock());
-        ItemStack glowstoneStack = new ItemStack(Items.GLOWSTONE_DUST);
-        ItemStack redstoneStack = new ItemStack(Items.REDSTONE);
-        ItemStack goldBlockStack = new ItemStack(Blocks.GOLD_BLOCK);
+        ItemStack plainsStack = new ItemStack(com.BaileyHollingsworth.TerrainCrystals.core.InitItems.terrainCrystalPlains);
+        ItemStack cherryBlossomStack = new ItemStack(InitItems.itemCherryBlossom);
+        ItemStack originIslandStack = new ItemStack(InitItems.itemOriginIsland);
+        ItemStack mysticGroveStack = new ItemStack(InitItems.itemMysticGrove);
+        ItemStack flowerFieldStack = new ItemStack(InitItems.itemFlowerField);
+        ItemStack flowerIslandStack = new ItemStack(InitItems.itemFlowerIsland);
+        ItemStack lavenderFieldsStack = new ItemStack(InitItems.itemLavenderFields);
+        ItemStack orchardStack = new ItemStack(InitItems.itemOrchard);
+        ItemStack seasonalForestStack = new ItemStack(InitItems.itemSeasonalForest);
+        ItemStack mapleWoodsStack = new ItemStack(InitItems.itemMapleWoods);
+        ItemStack bambooForestStack = new ItemStack(InitItems.itemBambooForest);
+        ItemStack coniferousForestStack = new ItemStack(InitItems.itemConiferousForest);
+        ItemStack ominousWoodsStack = new ItemStack(InitItems.itemOminousWoods);
+        ItemStack sacredSpringsStack = new ItemStack(InitItems.itemSacredSprings);
 
         GameRegistry.addRecipe(
                 new ItemStack(InitItems.itemCherryBlossom),
-                "xyx",
-                "ywy",
-                "xyx",
-                'w', goldBlockStack, 'x', pinkTulipStack, 'y', whiteTulipStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemBambooForest),
-                "xxx",
-                "xwx",
-                "xxx",
-                'w', goldBlockStack, 'x', sugarcaneStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemConiferousForest),
-                "xxx",
-                "xwx",
-                "xxx",
-                'w', goldBlockStack, 'x', spruceStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemFlowerField),
-                "xyx",
-                "ywy",
-                "xyx",
-                'w', goldBlockStack, 'x', poppyStack, 'y', dandelionStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemFlowerIsland),
-                "yxy",
-                "xwx",
-                "yxy",
-                'w', goldBlockStack, 'x', poppyStack, 'y', dandelionStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemLavenderFields),
-                "xxx",
-                "ywy",
-                "xxx",
-                'w', goldBlockStack, 'x', poppyStack, 'y', dandelionStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemMapleWoods),
-                "yxx",
-                "xwx",
-                "xxy",
-                'w', goldBlockStack, 'x', oakStack, 'y', spruceStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemMysticGrove),
-                "xyx",
-                "ywy",
-                "xyx",
-                'w', goldBlockStack, 'x', glowstoneStack, 'y', redstoneStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemOminousWoods),
-                "yxy",
-                "xwx",
-                "yxy",
-                'w', goldBlockStack, 'x', pearlStack, 'y', glowstoneStack);
-        GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemOrchard),
-                "xyx",
-                "ywy",
-                "xyx",
-                'w', goldBlockStack, 'x', appleStack, 'y', oakStack);
+                "x",
+                'x',plainsStack);
         GameRegistry.addRecipe(
                 new ItemStack(InitItems.itemOriginIsland),
-                "xxy",
-                "xwx",
-                "yxx",
-                'w', goldBlockStack, 'x', oakStack, 'y', grassBlockStack);
+                "x",
+                'x',cherryBlossomStack);
         GameRegistry.addRecipe(
-                new ItemStack(InitItems.itemSacredSprings),
-                "xyx",
-                "ywy",
-                "xyx",
-                'w', goldBlockStack, 'x', jungleStack, 'y', oakLeaves);
+                new ItemStack(InitItems.itemMysticGrove),
+                "x",
+                'x',originIslandStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemFlowerField),
+                "x",
+                'x',mysticGroveStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemFlowerIsland),
+                "x",
+                'x',flowerFieldStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemLavenderFields),
+                "x",
+                'x',flowerIslandStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemOrchard),
+                "x",
+                'x',lavenderFieldsStack);
         GameRegistry.addRecipe(
                 new ItemStack(InitItems.itemSeasonalForest),
-                "xyx",
-                "ywy",
-                "yxy",
-                'w', goldBlockStack, 'x', oakLeaves, 'y', oakStack);
+                "x",
+                'x',orchardStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemMapleWoods),
+                "x",
+                'x',seasonalForestStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemBambooForest),
+                "x",
+                'x',mapleWoodsStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemConiferousForest),
+                "x",
+                'x',bambooForestStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemOminousWoods),
+                "x",
+                'x',coniferousForestStack);
+        GameRegistry.addRecipe(
+                new ItemStack(InitItems.itemSacredSprings),
+                "x",
+                'x',ominousWoodsStack);
+        GameRegistry.addRecipe(new ItemStack(com.BaileyHollingsworth.TerrainCrystals.core.InitItems.terrainCrystalPlains),
+                "x",
+                'x',sacredSpringsStack);
+
     }
 
     @SideOnly(Side.CLIENT)

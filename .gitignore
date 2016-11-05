@@ -6,6 +6,7 @@ usercache.json
 usernamecache.json
 logs
 libs
+crash-reports
 # eclipse
 bin
 *.launch
