@@ -63,5 +63,4 @@ public class ItemSeasonalForest extends BOPTerrainCrystalAbstract {
             worldIn.setBlockState(pos.up(), Blocks.YELLOW_FLOWER.getDefaultState());
         }
     }
-
 }
