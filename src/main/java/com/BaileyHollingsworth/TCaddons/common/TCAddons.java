@@ -1,6 +1,6 @@
-package com.drasticdemise.TCaddons.common;
+package com.BaileyHollingsworth.TCaddons.common;
 
-import com.drasticdemise.TCaddons.common.items.BOPTerrainCrystalAbstract;
+import com.BaileyHollingsworth.TCaddons.common.items.BOPTerrainCrystalAbstract;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

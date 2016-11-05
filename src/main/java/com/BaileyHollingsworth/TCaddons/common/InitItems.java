@@ -1,6 +1,6 @@
-package com.drasticdemise.TCaddons.common;
+package com.BaileyHollingsworth.TCaddons.common;
 
-import com.drasticdemise.TCaddons.common.items.*;
+import com.BaileyHollingsworth.TCaddons.common.items.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;

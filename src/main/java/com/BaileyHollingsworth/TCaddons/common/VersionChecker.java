@@ -1,4 +1,4 @@
-package com.drasticdemise.TCaddons.common;
+package com.BaileyHollingsworth.TCaddons.common;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

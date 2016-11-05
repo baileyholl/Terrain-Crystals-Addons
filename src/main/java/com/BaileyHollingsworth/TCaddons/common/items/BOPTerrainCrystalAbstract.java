@@ -1,4 +1,4 @@
-package com.drasticdemise.TCaddons.common.items;
+package com.BaileyHollingsworth.TCaddons.common.items;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.enums.BOPWoods;

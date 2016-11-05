@@ -1,4 +1,4 @@
-package com.drasticdemise.TCaddons.common.items;
+package com.BaileyHollingsworth.TCaddons.common.items;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
@@ -7,10 +7,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
-public class ItemSeasonalForest extends BOPTerrainCrystalAbstract {
-    public ItemSeasonalForest() {
-        super("SeasonalForest");
+public class ItemOrchard extends BOPTerrainCrystalAbstract {
+
+    public ItemOrchard() {
+        super("Orchard");
     }
+
 
     @Override
     protected void decoratePlatform(World worldIn, BlockPos pos) {
@@ -20,42 +22,43 @@ public class ItemSeasonalForest extends BOPTerrainCrystalAbstract {
             } else {
                 genFlowers(worldIn, pos);
             }
-            if (Math.random() < 0.06 && spacedFarEnough(worldIn, pos.up(), 7)) {
+            if (Math.random() < 0.02 && spacedFarEnough(worldIn, pos.up())) {
                 growTree(worldIn, pos);
             }
         }
+
     }
 
     @Override
     protected Biome getBiomeType() {
-        return BOPBiomes.seasonal_forest.get();
+        return BOPBiomes.orchard.get();
     }
 
     public void growTree(World worldIn, BlockPos pos) {
-        double num = Math.random();
-        if (num < 0.25) {
-            //Oak
-            worldIn.setBlockState(pos.up(), Blocks.SAPLING.getDefaultState());
-        } else if (num < 0.45) {
-            //Yellow Autumn
-            worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(0));
-        } else if (num < 0.65) {
-            //Orange Autumn
-            worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(1));
-        } else if (num < 0.85) {
-            //Maple
-            worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(3));
+        if (Math.random() < 0.5) {
+            //Flowering Oak
+            worldIn.setBlockState(pos.up(), BOPBlocks.sapling_1.getStateFromMeta(5));
         } else {
-            //Dying
-            worldIn.setBlockState(pos.up(), BOPBlocks.sapling_0.getStateFromMeta(5));
+            //Jacandara
+            worldIn.setBlockState(pos.up(), Blocks.SAPLING.getDefaultState());
         }
         bonemealTree(worldIn, pos);
+
     }
 
     @Override
     public void genFlowers(World worldIn, BlockPos pos) {
         double num = Math.random();
-        if (num < 0.5) {
+        if (num < 0.2) {
+            //White Anemone
+            worldIn.setBlockState(pos.up(), BOPBlocks.flower_0.getStateFromMeta(9));
+        } else if (num < 0.4) {
+            //Oxeye daisy
+            worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(8));
+        } else if (num < 0.6) {
+            //Houstonia/Azure Blast
+            worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getStateFromMeta(3));
+        } else if (num < .8) {
             //Poppy
             worldIn.setBlockState(pos.up(), Blocks.RED_FLOWER.getDefaultState());
         } else {
